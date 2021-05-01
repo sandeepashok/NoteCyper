@@ -15,7 +15,7 @@
 
 ## Overview
 
-![screenshot](Capture.PNG)
+![screenshot](capture.png)
 
 ### About
   This is markdown enabled notepad called 'NoteCyper' (cyper meaning coded version of something) here it means notes in markdown code. 
