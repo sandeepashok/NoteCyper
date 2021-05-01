@@ -1,0 +1,66 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.add-btn {
+    margin: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: x-large;
+}
+
+.app-sidebar {
+    margin-top: 0px;
+    width: 30%;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+}
+
+.app-sidebar-notes {
+    height: calc(100vh - 78px);
+    overflow-y: scroll;
+}
+
+.app-sidebar-note {
+    padding: 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar-note-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app-sidebar-note .sidebar-delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+
+.app-sidebar-note .reactMarkdown {
+    margin: 10px 0;
+}
+
+.app-sidebar-note small {
+    display: block;
+    color: #999;
+}
+
+.app-sidebar-note:hover {
+    background: #ddd;
+}
+
+.app-sidebar-note.active,
+.app-sidebar-note.active small {
+    background: rgb(5, 184, 109);
+    color: white;
+}
+
+@media only screen and (max-width: 1030px) {
+    /* .add-btn:disabled {} */
+}

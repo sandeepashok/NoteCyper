@@ -1,0 +1,122 @@
+.app-preview {
+    width: 70%;
+    height: 100vh;
+}
+
+.app-preview-note-edit {
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.save-btn {
+    width: 75%;
+    height: 40px;
+    font-weight: bold;
+    background-color: #05B86D;
+    color: white;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+
+.save-btn:active {
+    background-color: white;
+    color: #05B86D;
+}
+
+.app-preview-note-preview {
+    height: 55vh;
+}
+
+.selected-none {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.no-active-note {
+    font-size: 2rem;
+    color: #999;
+    position: fixed;
+    left: 55%;
+}
+
+.selected-none .addnote-mob {
+    color: white;
+    background-color: #05B86D;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.selected-none .addnote-mob:hover {
+    background-color: rgb(169, 209, 245);
+    color: #05B86D;
+}
+
+.app-preview .addnote-mob {
+    color: white;
+    background-color: #05B86D;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.app-preview .addnote-mob:hover {
+    background-color: rgb(169, 209, 245);
+    color: #05B86D;
+}
+
+/* Editing */
+.app-preview-note-edit {
+    padding: 25px;
+}
+
+.app-preview-note-edit input,
+textarea {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: calc(35vh - 130px);
+    padding: 10px;
+    resize: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.app-preview-note-edit input {
+    height: 50px;
+    font-size: 2rem;
+}
+
+/* Preview */
+.app-preview-note-preview {
+    border-top: 1px solid #ddd;
+    overflow-y: scroll;
+    background: rgba(85, 84, 84, 0.055);
+}
+
+.preview-title {
+    padding: 25px 25px 0 25px;
+    margin: 0;
+    font-size: 1.5rem;
+
+}
+
+.markdown-preview {
+    padding: 0 25px 25px 25px;
+    font-size: 1rem;
+    line-height: 2rem;
+}
+
+@media only screen and (max-width: 1030px) {}
