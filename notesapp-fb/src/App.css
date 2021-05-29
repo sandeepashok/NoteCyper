@@ -30,10 +30,6 @@ button {
     color: #08c;
 }
 
-/* button:hover {
-    color: #04c;
-} */
-
-.App {
+.container {
     display: flex;
 }

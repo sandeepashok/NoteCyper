@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
+import Navbar from './components/Navbar/Navbar'
 import Sidebar from './components/Sidebar/Sidebar'
 import Preview from './components/Preview/Preview'
 import { v4 as uuidv4 } from 'uuid';
@@ -7,27 +8,31 @@ import db from './firebase'
 
 function App() {
 
-  // const localStorageNotes = localStorage.getItem('notes') && JSON.parse(localStorage.getItem('notes'))
-
   const [notes, setNotes] = useState([]);
-
 
   const [activeNote, setActiveNote] = useState();
 
+  const [isPressed, setIsPressed] = useState(false)
+
   const getNotes = () => {
+
     db.onSnapshot((snapshot) => {
+
       const serverNotes = [];
+
       snapshot.forEach((doc) => {
+
         serverNotes.push(doc.data());
+
       });
+
       setNotes(serverNotes)
+
     })
 
   }
 
   useEffect(() => {
-
-    // localStorage.setItem('notes', JSON.stringify(notes))
 
     getNotes();
 
@@ -43,10 +48,12 @@ function App() {
     }
 
     setNotes([...notes, newNote])
+
     setActiveNote(newNote.id)
   }
 
   const onDeleteNote = (noteId) => {
+
     setNotes(notes.filter((note) => note.id !== noteId))
 
     db.doc(noteId).delete()
@@ -54,29 +61,43 @@ function App() {
   }
 
   const onUpdateNote = (updatedNote) => {
+
     db.doc(updatedNote.id).set({
+
       ...updatedNote
+
     })
 
-    // const updatedNotesArr = notes.map((note) => {
-    //   return note.id === activeNote ? updatedNote : note
-    // })
-    // setNotes(updatedNotesArr)
   }
+
+  let noNotesClass = isPressed ? "hide-selected-none" : "selected-none"
+
+  let previewClass = isPressed ? "hide-app-preview" : "app-preview"
+
+  let sidebarClass = isPressed ? "app-sidebar" : "hide-app-sidebar"
 
 
   const getActiveNote = () => {
+
     const currentNote = notes.find((note) => note.id === activeNote)
+
     return currentNote
+
   }
 
   return (
 
     <div className="App">
 
-      <Sidebar notes={notes} onAddNote={onAddNote} onDeleteNote={onDeleteNote} activeNote={activeNote} setActiveNote={setActiveNote} />
+      <Navbar setIsPressed={setIsPressed} isPressed={isPressed} onAddNote={onAddNote} />
 
-      <Preview activeNote={getActiveNote()} activeNoteId={activeNote} onUpdateNote={onUpdateNote} onAddNote={onAddNote} />
+      <div className='container'>
+
+        <Sidebar notes={notes} onAddNote={onAddNote} onDeleteNote={onDeleteNote} activeNote={activeNote} setActiveNote={setActiveNote} sidebarClass={sidebarClass} setIsPressed={setIsPressed} isPressed={isPressed} />
+
+        <Preview activeNote={getActiveNote()} activeNoteId={activeNote} onUpdateNote={onUpdateNote} onAddNote={onAddNote} noNotesClass={noNotesClass} previewClass={previewClass} />
+
+      </div>
 
     </div>
 

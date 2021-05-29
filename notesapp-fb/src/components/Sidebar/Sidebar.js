@@ -1,29 +1,26 @@
 import './sidebar.css'
 import ReactMarkdown from 'react-markdown'
-import { IconButton, Button } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-export default function Sidebar({ notes, onAddNote, onDeleteNote, activeNote, setActiveNote }) {
+export default function Sidebar({ notes, onAddNote, onDeleteNote, activeNote, setActiveNote, sidebarClass, setIsPressed, isPressed }) {
 
     const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified)
 
     return (
-        <div className='app-sidebar'>
-
-            <div className='header'>
-
-                <h1>NoteCyper</h1>
-
-                <Button onClick={onAddNote} color='primary' className='add-btn'>Add Notes</Button>
-
-            </div>
+        <div className={sidebarClass}>
 
             <div className='app-sidebar-notes'>
+
+                <button onClick={onAddNote} className='addnote-mob'>&#43;</button>
 
                 {sortedNotes.map((note => {
                     return (
 
-                        <div className={`app-sidebar-note ${note.id === activeNote && 'active'}`} key={note.id} onClick={() => setActiveNote(note.id)}>
+                        <div className={`app-sidebar-note ${note.id === activeNote && 'active'}`} key={note.id} onClick={() => {
+                            setIsPressed(!isPressed)
+                            setActiveNote(note.id)
+                        }}>
 
                             <div className='sidebar-note-title'>
 

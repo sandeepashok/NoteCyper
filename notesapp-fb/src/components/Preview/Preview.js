@@ -1,9 +1,8 @@
 import './preview.css'
 import ReactMarkdown from 'react-markdown'
 import { useEffect, useState } from 'react'
-import { Button } from '@material-ui/core';
 
-export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddNote }) {
+export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddNote, noNotesClass, previewClass }) {
 
     useEffect(() => {
         setTitle(activeNote ? activeNote.title : "");
@@ -24,18 +23,18 @@ export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddN
 
     if (!activeNote) {
         return (
-            <div className='selected-none'>
-                <div className='no-active-note'>No Note Selected</div>
-                {/* <Button onClick={onAddNote} className='addnote-mob'>+</Button> */}
+            <div className={noNotesClass}>
+                <div className='no-active-note'>Add or Select a Note</div>
+                <button onClick={onAddNote} className='addnote-mob'>&#43;</button>
             </div>
         )
 
     }
 
     return (
-        <div className='app-preview' key={activeNoteId}>
+        <div className={previewClass} key={activeNoteId}>
 
-            {/* <Button onClick={onAddNote} className='addnote-mob'>+</Button> */}
+            <button onClick={onAddNote} className='addnote-mob'>&#43;</button>
 
             <div className='app-preview-note-edit'>
 
@@ -49,11 +48,11 @@ export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddN
             </div>
 
             <div className='app-preview-note-preview'>
+                <div>
+                    <h1 className='preview-title'>{title}</h1>
 
-                <h1 className='preview-title'>{title}</h1>
-
-                <ReactMarkdown className='markdown-preview'>{body}</ReactMarkdown>
-
+                    <ReactMarkdown className='markdown-preview'>{body}</ReactMarkdown>
+                </div>
             </div>
 
         </div>
