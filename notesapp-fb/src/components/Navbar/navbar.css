@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px;
+    box-shadow: 0 8px 6px -6px #8080802b;
+}
+
+.head-and-ham {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.ham {
+    display: none;
+    margin: 0px 10px 0px -5px;
+}
+
+.add-btn {
+    margin: 20px;
+    height: 35px;
+}
+
+.heading {
+    margin: 0;
+    font-size: x-large;
+}
+
+@media (max-width: 765px) {
+    .header .add-btn {
+        display: none;
+    }
+
+    .ham {
+        display: block;
+    }
+
+    .ham-icon {
+        font-size: 1.8rem !important;
+    }
+
+    .heading {
+        font-size: 18px;
+        margin: 0.3rem 0.1rem;
+    }
+}
