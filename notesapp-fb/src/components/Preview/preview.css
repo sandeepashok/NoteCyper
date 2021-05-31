@@ -3,6 +3,12 @@
     height: 100vh;
 }
 
+.hide-app-preview {
+    width: 70%;
+    height: 100vh;
+}
+
+
 .app-preview-note-edit {
     height: 45vh;
     display: flex;
@@ -11,6 +17,11 @@
     flex-direction: column;
     border: 1px solid #8080802b;
     border-right: 2px solid #8080806e;
+    width: 100%;
+}
+
+.app-note-preview {
+    width: 100%;
 }
 
 .save-btn {
@@ -40,6 +51,14 @@
     margin: auto;
 }
 
+.hide-selected-none {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: auto;
+}
+
 .no-active-note {
     font-size: 2rem;
     color: #999;
@@ -51,6 +70,10 @@
 }
 
 .app-preview .addnote-mob {
+    display: none;
+}
+
+.addnote-mob {
     display: none;
 }
 
@@ -89,6 +112,7 @@ textarea {
     padding: 25px 25px 0 25px;
     margin: 0;
     font-size: 1.5rem;
+    text-transform: capitalize;
 }
 
 .markdown-preview {
@@ -157,6 +181,7 @@ textarea {
         position: fixed;
         right: 1rem;
         bottom: 1rem;
+        z-index: 99;
     }
 
     .app-preview .addnote-mob {
@@ -172,5 +197,6 @@ textarea {
         position: fixed;
         right: 1rem;
         bottom: 1rem;
+        z-index: 99;
     }
 }

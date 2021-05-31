@@ -48,7 +48,7 @@ export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddN
             </div>
 
             <div className='app-preview-note-preview'>
-                <div>
+                <div className='app-note-preview'>
                     <h1 className='preview-title'>{title}</h1>
 
                     <ReactMarkdown className='markdown-preview'>{body}</ReactMarkdown>
