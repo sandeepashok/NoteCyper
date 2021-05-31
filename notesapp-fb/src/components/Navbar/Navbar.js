@@ -17,9 +17,10 @@ export default function Navbar({ onAddNote, setIsPressed, isPressed }) {
                 <h1 className='heading'>NoteCyper</h1>
 
             </div>
-
-            <Button onClick={onAddNote} color='primary' className='add-btn'>Add Notes</Button>
-
+            <div>
+                <Button onClick={onAddNote} color='primary' className='add-btn'>Add Notes</Button>
+                {/* <Button className='login-logout-btn'>Logout</Button> */}
+            </div>
         </div>
     )
 }

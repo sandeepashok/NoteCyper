@@ -5,6 +5,13 @@
     border-right: 1px solid #ddd;
 }
 
+.hide-app-sidebar {
+    margin-top: 0px;
+    width: 30%;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+}
+
 .app-sidebar-notes {
     height: calc(100vh - 78px);
     overflow-y: scroll;
@@ -87,5 +94,6 @@
         position: fixed;
         right: 1rem;
         bottom: 1rem;
+        z-index: 99;
     }
 }
