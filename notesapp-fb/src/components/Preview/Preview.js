@@ -17,7 +17,8 @@ export default function Preview({ activeNoteId, onUpdateNote, activeNote, onAddN
         onUpdateNote({
             ...activeNote,
             title: title,
-            body: body
+            body: body,
+            lastModified: Date.now()
         })
     }
 
