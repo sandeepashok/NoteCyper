@@ -10,7 +10,7 @@
 
 
 .app-preview-note-edit {
-    height: 45vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,13 +25,13 @@
 }
 
 .save-btn {
-    width: 75%;
+    width: 70px;
     height: 40px;
+    font-size: large;
     font-weight: bold;
     background-color: #05B86D;
     color: white;
     border-radius: 5px;
-    margin-top: 7px;
 }
 
 .save-btn:active {
@@ -40,7 +40,7 @@
 }
 
 .app-preview-note-preview {
-    height: 55vh;
+    height: 60vh;
 }
 
 .selected-none {
@@ -66,20 +66,53 @@
 }
 
 .selected-none .addnote-mob {
-    display: none;
+    background-color: #05B86D;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    height: 3.2rem;
+    width: 3.2rem;
+    padding-bottom: 0.3rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
 }
 
 .app-preview .addnote-mob {
-    display: none;
+    background-color: #05B86D;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    height: 3.2rem;
+    width: 3.2rem;
+    padding-bottom: 0.3rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
 }
 
 .addnote-mob {
-    display: none;
+    background-color: #05B86D;
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    height: 3.2rem;
+    width: 3.2rem;
+    padding-bottom: 0.3rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
 }
 
 /* Editing */
 .app-preview-note-edit {
-    padding: 25px;
+    padding: 5px 25px;
 }
 
 .app-preview-note-edit input,
@@ -87,7 +120,7 @@ textarea {
     display: block;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     width: 100%;
     height: calc(35vh - 130px);
     padding: 10px;
@@ -104,7 +137,7 @@ textarea {
 /* Preview */
 .app-preview-note-preview {
     border-top: 1px solid #ddd;
-    overflow-y: scroll;
+    overflow: scroll;
     background: rgba(85, 84, 84, 0.055);
 }
 
@@ -118,7 +151,7 @@ textarea {
 .markdown-preview {
     padding: 0 25px 25px 25px;
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 1.5rem;
 }
 
 ::-webkit-scrollbar {
@@ -169,7 +202,6 @@ textarea {
     }
 
     .selected-none .addnote-mob {
-        display: inline-block;
         background-color: #05B86D;
         color: white;
         font-weight: bold;

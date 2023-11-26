@@ -1,6 +1,6 @@
-import firebase from 'firebase'
-import 'firebase/firestore'
-import 'firebase/auth'
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, query, orderBy, serverTimestamp, addDoc, where, onSnapshot, doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,11 +11,10 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
-export const app = firebase.initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
 
-const db = firebase.firestore().collection('notes');
+const auth = getAuth(app);
+const firestore = getFirestore(app);
 
-// const timestamp = firebase.firestore.FieldValue.serverTimestamp()
 
-export const auth = app.auth()
-export default db
+export { auth, firestore, query, orderBy, serverTimestamp, addDoc, where, onSnapshot, doc, setDoc, deleteDoc, collection, GoogleAuthProvider, signInWithPopup }

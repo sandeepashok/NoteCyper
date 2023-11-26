@@ -1,0 +1,81 @@
+.signin-container {
+  margin: auto;
+  max-width: 100vh;
+}
+
+.signin-page {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 60vh;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 7rem;
+}
+
+.signin-page h1 {
+  color: #4E4E4E;
+}
+
+.signin-page h4 {
+  color: #4E4E4E;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.signin-btn {
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: bold;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+  color: #467496;
+  border: 1px solid #4242421c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.brand-logo {
+  margin-top: 1.5rem;
+  width: 100px;
+  height: 100px;
+}
+
+.google-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .signin-container {
+    margin: auto;
+    margin-top: 6rem;
+    width: 100%;
+  }
+
+  .signin-page h4 {
+    font-size: 15px;
+  }
+
+  .signin-page {
+    width: 95%;
+  }
+
+}
