@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     width: 25%;
+    margin: 0.25rem;
 }
 
 .ham {
@@ -17,9 +18,17 @@
     margin: 0px 10px 0px -5px;
 }
 
-.add-btn {
-    margin: 20px;
-    height: 35px;
+.signout-btn {
+    font-size: 17px;
+    color: red;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(211, 211, 211, 0.274);
+}
+
+.signout-btn:hover {
+    background-color: rgba(220, 20, 60, 0.589);
+    color: white;
 }
 
 .heading {
@@ -27,11 +36,18 @@
     font-size: x-large;
 }
 
-@media (max-width: 765px) {
-    .header .add-btn {
-        display: none;
-    }
+.username-signout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.username-signout p {
+    margin: 0.25rem;
+    color: #05B86D;
+}
+
+@media (max-width: 765px) {
     .ham {
         display: block;
     }
@@ -43,5 +59,9 @@
     .heading {
         font-size: 18px;
         margin: 0.3rem 0.1rem;
+    }
+
+    .username-signout p {
+        display: none;
     }
 }

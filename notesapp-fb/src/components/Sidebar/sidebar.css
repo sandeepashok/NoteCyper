@@ -17,9 +17,7 @@
     overflow-y: scroll;
 }
 
-.app-sidebar-notes .addnote-mob {
-    display: none;
-}
+.app-sidebar-notes .addnote-mob {}
 
 .app-sidebar-note {
     padding: 25px;

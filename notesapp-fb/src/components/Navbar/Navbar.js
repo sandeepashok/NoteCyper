@@ -1,10 +1,9 @@
 import React from 'react'
-import { Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import './navbar.css'
 
 
-export default function Navbar({ onAddNote, setIsPressed, isPressed }) {
+export default function Navbar({ setIsPressed, isPressed, auth, userName }) {
     return (
         <div className='header'>
 
@@ -17,9 +16,9 @@ export default function Navbar({ onAddNote, setIsPressed, isPressed }) {
                 <h1 className='heading'>NoteCyper</h1>
 
             </div>
-            <div>
-                <Button onClick={onAddNote} color='primary' className='add-btn'>Add Notes</Button>
-                {/* <Button className='login-logout-btn'>Logout</Button> */}
+            <div className='username-signout' >
+                <p>{`Hi, ${userName}!`}</p>
+                <button onClick={() => auth.signOut()} color='primary' className='signout-btn'>Sign Out</button>
             </div>
         </div>
     )
