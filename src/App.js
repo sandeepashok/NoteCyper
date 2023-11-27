@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -14,44 +14,46 @@ function App() {
   const [isPressed, setIsPressed] = useState(false);
   const [user] = useAuthState(auth);
 
-  const getNotes = () => {
+  const getNotes = useCallback(() => {
     onSnapshot(query(collection(firestore, 'notes'), where('userId', '==', user.uid)), (snapshot) => {
       const serverNotes = snapshot.docs.map((doc) => doc.data());
       setNotes(serverNotes);
     });
-  };
+  }, [user]);
 
   useEffect(() => {
     if (user) {
       getNotes();
     }
-  }, [user]);
+  }, [user, getNotes]);
 
   const body = `
-  - ##### **Note (This is markdown text enabled textfield!)** \n\n > > > > **&&** \n\n  > **(>>save notes after adding<<)**
-  - *This is a italicized text* \
-  - **This is a bold text**
-  - >This is a blockquote 
-   >Ordered list >>
-  1. First item
-  2. Second item
-  3. Third item 
-   >Unordered list >>
-  - First item
-  - Second item
-  - Third item
-  `+ " - `console.log('hello world!')`" + `
-  - [This is my website link](https://sandeep.netlify.app)- syntax for link: [link description] (link) *[note: without space]*
-  - This is an image >>![image](https://static-cdn.jtvnw.net/jtv_user_pictures/89f44435-2040-4707-97e1-4aa6ad2c2128-profile_image-300x300.png)
-  - syntax for image: ! [alt text] (google image address link) *(note: without space)* => image
-  # This is H1
-  ## This is H2
-  ### This is H3
-  #### This is H4
-  ##### This is H5
-  ###### This is H6
+  - ##### **Note (This is markdown text enabled textfield!)**  
+    > > > > **&&**  
+    > **(>>save notes after adding<<)**
+  - *This is italicized text*  
+  - **This is bold text**
+  - > This is a blockquote  
+    > Ordered list >>  
+    1. First item  
+    2. Second item  
+    3. Third item  
+    > Unordered list >>  
+    - First item  
+    - Second item  
+    - Third item  
+  - \`console.log('hello world!')\`  
+  - [This is my website link](https://sandeep.netlify.app) - syntax for link: [link description](link) *[note: without space]*  
+  - This is an image >>![image](https://static-cdn.jtvnw.net/jtv_user_pictures/89f44435-2040-4707-97e1-4aa6ad2c2128-profile_image-300x300.png)  
+    - syntax for image: ![alt text](google image address link) *(note: without space)* => image  
+  # This is H1  
+  ## This is H2  
+  ### This is H3  
+  #### This is H4  
+  ##### This is H5  
+  ###### This is H6  
   ### *You can view all the syntax for things present here in the editor ^_^*
-  `
+`;
 
   const onAddNote = () => {
     const newNote = {
